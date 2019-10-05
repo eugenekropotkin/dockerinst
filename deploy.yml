@@ -14,9 +14,9 @@
 
 - hosts: dockerhosts
   strategy: free
-  module_defaults:
-    apt:
-      force_apt_get: yes
+#  module_defaults:
+#    apt:
+#      force_apt_get: yes
 
   tasks:
   - name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
