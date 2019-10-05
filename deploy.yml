@@ -11,15 +11,6 @@
 - hosts: dockerhosts
   strategy: free
 
-#- name: "APT: Install aptitude package"
-#  apt:
-#    name: aptitude
-#    force_apt_get: yes
-
-#  module_defaults:
-#    apt:
-#      force_apt_get: yes
-
   tasks:
   - name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
     apt: update_cache=yes cache_valid_time=3600
@@ -50,9 +41,6 @@
   - name: Add Docker APT repository
     apt_repository:
       repo: deb [arch=amd64] https://download.docker.com/linux/{{ansible_distribution|lower}} {{ansible_distribution_release}} stable
-
-#  - name: Update apt cache again
-#    apt: update_cache=yes
 
   - name: Install Docker
     apt:
