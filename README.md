@@ -1,8 +1,8 @@
 # dockerinst
 Docker installer playbook - simple and fast
 
-##Tested on:
+### Tested on:
  Ubuntu 18.04
 
-##Deploy:
+### Deploy:
  ansible-playbook deploy.yml
