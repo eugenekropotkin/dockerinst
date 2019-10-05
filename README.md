@@ -6,4 +6,4 @@ Docker installer playbook - simple and fast
 
 ### Deploy:
  fill hosts in hosts, than:
- ansible-playbook deploy.yml
+ **ansible-playbook deploy.yml**
