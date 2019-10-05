@@ -5,4 +5,5 @@ Docker installer playbook - simple and fast
  Ubuntu 18.04
 
 ### Deploy:
+ fill hosts in hosts, than:
  ansible-playbook deploy.yml
