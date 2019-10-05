@@ -7,13 +7,15 @@
   - name: install python
     raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
     changed_when: false
-#  - name: "APT: Install aptitude package"
-#    apt:
-#      name: aptitude
-#      force_apt_get: yes
 
 - hosts: dockerhosts
   strategy: free
+
+#- name: "APT: Install aptitude package"
+#  apt:
+#    name: aptitude
+#    force_apt_get: yes
+
 #  module_defaults:
 #    apt:
 #      force_apt_get: yes
@@ -31,6 +33,7 @@
     apt:
       name: "{{ packages }}"
       state: latest
+      force_apt_get: yes
     vars:
       packages:
       - software-properties-common
@@ -47,13 +50,14 @@
     apt_repository:
       repo: deb [arch=amd64] https://download.docker.com/linux/{{ansible_distribution|lower}} {{ansible_distribution_release}} stable
 
-  - name: Update apt cache again
-    apt: update_cache=yes
+#  - name: Update apt cache again
+#    apt: update_cache=yes
 
   - name: Install Docker
     apt:
       name: docker-ce
       update_cache: yes
+      force_apt_get: yes
 
   - name: Remove dependencies that are no longer required
     apt:
